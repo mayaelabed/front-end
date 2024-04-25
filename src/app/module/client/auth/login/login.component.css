@@ -1,0 +1,37 @@
+.container {
+  margin-top: 10%;
+}
+.custom-btn1 {
+  background-color: var(--btn1-color);
+  color: white;
+  width: 100%;
+}
+
+.custom-btn1:hover {
+  background-color: var(--btn1-color);
+  opacity: 0.9;
+  color: white;
+}
+
+.custom-btn2 {
+  background-color: var(--btn2-color);
+  color: white;
+  width: 100%;
+}
+
+.custom-btn2:hover {
+  background-color: var(--btn2-color);
+  opacity: 0.9;
+  color: white;
+}
+
+.custom-card1 {
+  border-bottom: var(--btn1-color) 4px solid;
+  border-top: var(--btn1-color) 4px solid;
+}
+
+.custom-card2 {
+  border-bottom: var(--btn2-color) 4px solid;
+  border-top: var(--btn2-color) 4px solid;
+}
+

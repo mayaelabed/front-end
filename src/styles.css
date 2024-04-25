@@ -1,0 +1,132 @@
+:root {
+  --main-color: #A32C30;
+  --second-color: #20262C;
+  --btn1-color: #A32C30;
+  --btn2-color: rgb(245, 164, 37);
+
+  --price-font: 'Kalam', cursive;
+  --car-name-font: 'Raleway', sans-serif;
+  --admin-text-font: 'Poppins', sans-serif;
+}
+
+body {
+  color: #1b1b1e;
+  background-color: #e7e7e7;
+}
+
+
+.custom-btn1-lg {
+  background-color: var(--btn1-color);
+  color: white;
+  width: 100%;
+}
+
+.custom-btn1-lg:hover {
+  background-color: var(--btn1-color);
+  opacity: 0.9;
+  color: white;
+}
+
+.custom-btn1-sm {
+  background-color: var(--btn1-color);
+  color: white;
+  width: 30%;
+}
+
+.custom-btn1-sm:hover {
+  background-color: var(--btn1-color);
+  opacity: 0.9;
+  color: white;
+}
+
+
+.custom-btn2-lg {
+  background-color: var(--btn2-color);
+  color: white;
+  width: 100%;
+}
+
+.custom-btn2-lg:hover {
+  background-color: var(--btn2-color);
+  opacity: 0.9;
+  color: white;
+}
+
+.custom-card1 {
+  border-bottom: var(--btn1-color) 4px solid;
+  /*border-top: var(--btn1-color) 4px solid;*/
+}
+
+.custom-card2 {
+  border-bottom: var(--btn2-color) 4px solid;
+  border-top: var(--btn2-color) 4px solid;
+}
+
+.price-font {
+  background-color: rgba(163, 44, 48);
+  color: white !important;
+  font-family: var(--price-font);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 1px;
+  border: 2px solid rgba(163, 44, 48, 0.89);
+  border-radius: 10%;
+}
+
+.rental-price {
+  color: #c4c4c4;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+}
+
+.car-title {
+  font-family: var(--car-name-font);
+  font-weight: 600;
+}
+
+a {
+  color: var(--main-color) !important;
+}
+
+span {
+  color: #363636;
+}
+
+.mt-10 {
+  margin-top: 10%;
+}
+
+.iconify {
+  cursor: pointer;
+}
+
+.card-header-text1 {
+  color: #4E73DF;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-header-text2 {
+  color: rgba(78, 115, 223, 0.92);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input, select {
+  border: 1px solid #b0b0b0 !important;
+}
+
+th {
+  text-transform: capitalize !important;
+  font-size: 16px;
+  color: #4d566e !important;
+}
+
+td {
+  text-transform: capitalize !important;
+  font-size: 16px;
+  color: #4d4949 !important;
+  font-family: var(--admin-text-font);
+}
+

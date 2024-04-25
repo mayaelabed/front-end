@@ -1,0 +1,13 @@
+.color-square {
+    padding:  0px 11px 0px 11px;
+  border-radius: 50%;
+    border: 1px solid #b9b9b9; /* Add a border for visibility */
+  }
+  
+  .datePicker {
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px;
+    border: 3px solid var(--main-color);
+  }

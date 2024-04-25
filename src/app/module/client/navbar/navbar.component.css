@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+}
+
+
+a, li {
+  color: #464646 !important;
+  font-weight: bold;
+  font-size: 17px;
+}

@@ -1,0 +1,28 @@
+<div class="container ">
+  <div class="row  justify-content-center">
+    <div class="col-md-6 card custom-card1 shadow bg-body-tertiary p-3 mb-5">
+      <div class="card-body">
+        <h2 class="text-center mb-5">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="">
+          <!--          email-->
+          <div class="form-floating mb-3">
+            <input type="email" formControlName="email" class="form-control mb-2" id="fEmail" placeholder="">
+            <label for="fEmail">Email address</label>
+          </div>
+          <!--          password-->
+
+          <div class="form-floating mb-3">
+            <input type="password" formControlName="password"  class="form-control mb-2" id="fPassword1" placeholder="">
+            <label for="fPassword1">Password</label>
+          </div>
+
+          <input type="checkbox" class="m-2" value="connected">Remember me
+          <button type="submit" class="btn custom-btn1 mt-4 mb-2">Login</button>
+          <a class="ms-2" routerLink="/register"> You don't have an account, Register</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
