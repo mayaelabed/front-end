@@ -1,0 +1,112 @@
+<!-- <user-navbar></user-navbar> -->
+
+
+<div class="container mt-7">
+  <div class="card">
+    <div class="card-body border ">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="carouselExampleIndicators" class="carousel slide mx-auto col-md-7">
+            <ng-container>
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        aria-label="Slide 1" aria-current="true" class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <!-- <div class="carousel-item" *ngFor="let picturePath of UserModel; let i = index" -->
+                <div class="carousel-item">
+                  <img [src]="'https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?cs=srgb&dl=pexels-fotoaibe-1669799.jpg&fm=jpg' " class="d-block w-100" alt="roomImg">
+                </div>
+              </div>
+            </ng-container>
+            <button class="carousel-control-prev text-black" type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-8 mx-auto">
+
+
+            <!-- <div class="position-absolute top-0 end-0 p-2 m-3 text-white price-font ">
+              <i></i>
+              <span class="text-white">{{ this.UserModel }} TND</span><span
+              class="rental-price">/day</span>
+            </div> -->
+
+<!-- 
+            <div class="my-3 mt-5">
+              <h4 class="car-title text-black ">{{ this.UserModel }}</h4>
+            </div>
+            <div>
+              <h4 class="car-title ">
+                <i
+                  class="text-black me-2">{{ this.UserModel }}</i>
+                <small>({{ this.UserModel }})</small>
+              </h4>
+            </div> -->
+
+            <div class="my-3">
+              <ng-container *ngIf="this.UserModel; else secondShow">
+                <div style="color: green;">
+
+                  <span class="iconify" data-icon="fluent:presence-available-12-regular"></span>
+                  Available
+                </div>
+
+              </ng-container>
+              <ng-template #secondShow>
+                <div style="color: red;">
+                  <span class="iconify" data-icon="iconamoon:unavailable-fill" data-width="18"></span>
+                  Not Available
+                </div>
+              </ng-template>
+            </div>
+
+
+
+            <div class="my-2">
+              <b><span class="me-2">Fullname :</span></b>
+              <span>{{ this.UserModel.fullname }}</span>
+            </div>
+
+            <div class="my-2">
+              <b><span class="me-2">Email :</span></b>
+              <span>{{ this.UserModel.email }}</span>
+            </div>
+            <div class="my-2">
+              <i></i>
+              <b><span class="me-2">Role :</span></b>
+              <span>{{ this.UserModel.role }}</span>
+            </div>
+
+            <div class="my-2">
+              <b><span class="me-2">Password :</span></b>
+              <span>{{ this.UserModel.password }} </span>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div>
+    
+  </div>
+
+</div>

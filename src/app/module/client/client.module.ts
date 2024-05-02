@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { UserDetailsComponent } from './user-details/user-details.component';
+
 import {ClientRoutingModule} from './client-routing.module';
 import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './auth/login/login.component';
@@ -17,7 +17,7 @@ import {NgbAccordionButton, NgbModule} from "@ng-bootstrap/ng-bootstrap";
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    UserDetailsComponent,
+    
   ],
   imports: [
     CommonModule,

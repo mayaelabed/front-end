@@ -4,9 +4,9 @@
       <div class="card border border-2">
         <div class="card-header pb-0">
           <div class="d-flex align-items-center">
-            <p class=" card-header-text1 bold">All user</p>
-            <button class="btn bg-gradient-success ms-auto" routerLink="/admin/dashboard/add-user"><i
-              class="fas fa-plus"></i>&nbsp;&nbsp;Add New user
+            <p class=" card-header-text1 bold">All Category</p>
+            <button class="btn bg-gradient-success ms-auto" routerLink="/admin/dashboard/add-category"><i
+              class="fas fa-plus"></i>&nbsp;&nbsp;Add New category
             </button>
           </div>
         </div>
@@ -18,38 +18,36 @@
               <thead class="thead-light">
               <tr class="">
                 <th>ID</th>
-                <th>Fullname</th>
-                <th>email</th>
-                <th>role</th>
-      
+                <th>name</th>
+                <th>description</th>      
                 <th>actions</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let UserDetails of listUserDetails">
-                <td>{{ UserDetails._id }}</td>
-                <td>{{ UserDetails.fullname }}</td>
-                <td>{{ UserDetails.email }}</td>
-                <td>{{ UserDetails.role }}</td>
+              <tr *ngFor="let CategoryDetails of listCategoryDetails">
+                <td>{{ CategoryDetails._id }}</td>
+                <td>{{ CategoryDetails.name }}</td>
+                <td>{{ CategoryDetails.description }}</td>
+                
  
          
                 <td class="align-middle text-center text-sm">
 
 
                   <button type="button" class="btn btn-outline-info btn-sm mx-1"
-                          [routerLink]="['/admin/dashboard/user-details', UserDetails._id]">
+                          [routerLink]="['/admin/dashboard/category-details', CategoryDetails._id]">
                     View
                   </button>
                   <button type="button" class="btn btn-outline-info btn-sm mx-1"
-                          [routerLink]="['/admin/dashboard/update-user', UserDetails._id]">
+                          [routerLink]="['/admin/dashboard/update-category', CategoryDetails._id]">
                     Edit
                   </button>
                   <button type="button" class="btn btn-danger btn-sm mb-3" data-bs-toggle="modal"
-                          [attr.data-bs-target]="'#modal-notification' + UserDetails._id">
+                          [attr.data-bs-target]="'#modal-notification' + CategoryDetails._id">
                     Cancel
                   </button>
 
-                  <div class="modal fade" [id]="'modal-notification' + UserDetails.id" tabindex="-1" role="dialog"
+                  <div class="modal fade" [id]="'modal-notification' + CategoryDetails.id" tabindex="-1" role="dialog"
                        aria-labelledby="modal-notification" aria-hidden="true">
                     <!-- ... modal content ... -->
 
@@ -64,14 +62,14 @@
                         <div class="modal-body">
                           <div class="py-3 text-center">
                             <i class="fa-regular fa-trash-can fa-5x" style="color: #d00b0b;"></i>
-                            <h4 class="text-gradient text-danger mt-4"> Cancel Reservation id : {{ UserDetails._id }}
+                            <h4 class="text-gradient text-danger mt-4"> Cancel Reservation id : {{ CategoryDetails._id }}
                               !</h4>
                             <!--                          <p>Confirm Cancel This Reservation ?</p>-->
                           </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                  (click)="deleteroomById(UserDetails.id)">Cancel
+                                  (click)="deleteCategoryById(CategoryDetails.id)">Cancel
                           </button>
                           <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
                           </button>
