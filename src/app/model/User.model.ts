@@ -6,6 +6,7 @@ export class UserModel {
   email?: string;
   password?: string;
   role?: string;
+  image?: string[];
   createdOn?: Date;
   updatedOn?: Date;
 
@@ -16,6 +17,7 @@ export class UserModel {
     email?: string,
     password?: string,
     role?: string,
+    image?: string[],
     createdOn?: Date,
     updatedOn?: Date
   ) {
@@ -24,6 +26,7 @@ export class UserModel {
     this.email = email;
     this.password = password;
     this.role = role;
+    this.image = image;
     this.createdOn = createdOn;
     this.updatedOn = updatedOn;
   }
