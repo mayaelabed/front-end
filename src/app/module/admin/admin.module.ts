@@ -16,6 +16,9 @@ import { UserDetailsComponent } from '../admin/user-details/user-details.compone
 import { AddCategoryComponent } from './category-managment/add-category/add-category.component';
 import { UpdateCategoryComponent } from './category-managment/update-category/update-category.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { AddProductComponent } from './product-managment/add-product/add-product.component';
+import { ShowProductComponent } from './product-managment/show-product/show-product.component';
+import { UpdateProductComponent } from './product-managment/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
     UserDetailsComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    AddProductComponent,
+    ShowProductComponent,
+    UpdateProductComponent
     
   ],
     imports: [

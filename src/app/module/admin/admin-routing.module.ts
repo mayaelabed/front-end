@@ -11,6 +11,9 @@ import { UserDetailsComponent } from '../admin/user-details/user-details.compone
 import { AddCategoryComponent } from './category-managment/add-category/add-category.component';
 import { UpdateCategoryComponent } from './category-managment/update-category/update-category.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { AddProductComponent } from './product-managment/add-product/add-product.component';
+import { ShowProductComponent } from './product-managment/show-product/show-product.component';
+import { UpdateProductComponent } from './product-managment/update-product/update-product.component';
 
 const routes: Routes = [
   {
@@ -28,6 +31,12 @@ const routes: Routes = [
       { path: 'add-category', component: AddCategoryComponent},
       { path: 'update-category/:id', component: UpdateCategoryComponent  },
       {path: 'category-details/:id', component: CategoryDetailsComponent},
+       //product
+       { path: 'show-product', component: ShowProductComponent },
+       { path: 'add-product', component: AddProductComponent},
+       { path: 'update-product/:id', component: UpdateProductComponent  },
+       {path: 'category-product/:id', component: CategoryDetailsComponent},
+
       //login
       {path: 'login', component: LoginComponent},
 

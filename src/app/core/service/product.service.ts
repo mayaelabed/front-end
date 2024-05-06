@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {UserModel} from "../../model/User.model";
+import { ProductModel } from 'src/app/model/Product.model';
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class ProductService {
 
-  private baseUrl = 'http://localhost:3001/user';
+  private baseUrl = 'http://localhost:3001/product';
   loggedUserId = this.authService.getUserDetails("id");
   constructor(private http: HttpClient, private authService:AuthService) { }
 
@@ -22,21 +22,21 @@ export class UserService {
 
   
 
-  findById(idUser: string | undefined) {
-    return this.http.get<UserModel>(`${this.baseUrl}/${idUser}`);
+  findById(idProduct: string | undefined) {
+    return this.http.get<ProductModel>(`${this.baseUrl}/${idProduct}`);
   }
 
-  createUser(UserForm: any) {
-    return this.http.post<UserModel>(`${this.baseUrl}/create`, UserForm);
+  createProduct(ProductForm: any) {
+    return this.http.post<ProductModel>(`${this.baseUrl}/create`, ProductForm);
   }
 
-  updateUser(idUser: any ,UserForm: any) {
-    return this.http.put<UserModel>(`${this.baseUrl}/${idUser}`, UserForm);
+  updateProduct(idProduct: any ,ProductForm: any) {
+    return this.http.put<ProductModel>(`${this.baseUrl}/update/${idProduct}`, ProductForm);
 
   }
   
-  deleteUserById(id: string | undefined) {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+  deleteProductById(id: string | undefined) {
+    return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
 
   
