@@ -44,10 +44,9 @@
                           [routerLink]="['/admin/dashboard/update-user', UserDetails._id]">
                     Edit
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm mb-3" data-bs-toggle="modal"
-                          [attr.data-bs-target]="'#modal-notification' + UserDetails._id">
-                    Cancel
-                  </button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                  (click)="deleteUserById(UserDetails._id)">Delete
+  </button>
 
                   <div class="modal fade" [id]="'modal-notification' + UserDetails.id" tabindex="-1" role="dialog"
                        aria-labelledby="modal-notification" aria-hidden="true">
@@ -71,7 +70,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                  (click)="deleteroomById(UserDetails.id)">Cancel
+                                  (click)="deleteUserById(UserDetails.id)">Cancel
                           </button>
                           <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
                           </button>

@@ -53,7 +53,7 @@ export class ShowUserComponent implements OnInit {
   };
 
 
-  deleteroomById(id: string | undefined) {
+  deleteUserById(id: string | undefined) {
 
 
     this.UserService.deleteUserById(id).subscribe(
@@ -63,7 +63,8 @@ export class ShowUserComponent implements OnInit {
             .filter((item: { id: string | undefined; }) => item.id !== id);
 
       }, error =>{
-        alert("Problem Occurred: "+ error.error.message);
+        console.log(error.message);
+        
 
       }
     )

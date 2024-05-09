@@ -11,7 +11,7 @@
           <!-- your-component.component.html -->
 
           <form [formGroup]="ProductForm" (ngSubmit)="updateProduct()">
-            <p class="text-uppercase card-header-text2 text-sm">category Information</p>
+            <p class="text-uppercase card-header-text2 text-sm">product Information</p>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -40,7 +40,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="capacity" class="form-control-label">category</label>
-                  <input id="capacity" class="form-control" type="text" formControlName="category">
+                  <input id="capacity" class="form-control" type="text"  [value]="getCategoryNameById()" readonly> 
                 </div>
               </div>
               
@@ -58,7 +58,7 @@
       </div>
     </div>
     
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <div class="card">
         <div class="card-header pb-0">
           <div class="d-flex align-items-center">
@@ -74,9 +74,13 @@
             <input class="form-control mt-3" type="file" (change)="onFileChange($event)" multiple>
           </div>
 
+     
+          <div *ngIf="ProductForm.value.image">
+            <img [src]="getUploadedImageUrl()" alt="Uploaded Image" class="img-fluid mt-3">
+          </div>
         </div>
       </div>
 
-    </div>
+    </div> -->
   </div>
 </div>

@@ -42,9 +42,8 @@
                           [routerLink]="['/admin/dashboard/update-category', CategoryDetails._id]">
                     Edit
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm mb-3" data-bs-toggle="modal"
-                          [attr.data-bs-target]="'#modal-notification' + CategoryDetails._id">
-                    Cancel
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  (click)="deleteCategoryById(CategoryDetails._id)">Delete
                   </button>
 
                   <div class="modal fade" [id]="'modal-notification' + CategoryDetails.id" tabindex="-1" role="dialog"

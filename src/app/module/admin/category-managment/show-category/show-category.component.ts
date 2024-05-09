@@ -63,8 +63,8 @@ export class ShowCategoryComponent implements OnInit {
             .filter((item: { id: string | undefined; }) => item.id !== id);
 
       }, error =>{
-        alert("Problem Occurred: "+ error.error.message);
-
+        console.log(error.message);
+        
       }
     )
 
