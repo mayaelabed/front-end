@@ -4,9 +4,9 @@
       <div class="card border border-2">
         <div class="card-header pb-0">
           <div class="d-flex align-items-center">
-            <p class=" card-header-text1 bold">All user</p>
-            <button class="btn bg-gradient-success ms-auto" routerLink="/admin/dashboard/add-user"><i
-              class="fas fa-plus"></i>&nbsp;&nbsp;Add New user
+            <p class=" card-header-text1 bold">All Product</p>
+            <button class="btn bg-gradient-success ms-auto" routerLink="/admin/dashboard/add-product"><i
+              class="fas fa-plus"></i>&nbsp;&nbsp;Add New Product
             </button>
           </div>
         </div>
@@ -18,38 +18,44 @@
               <thead class="thead-light">
               <tr class="">
                 <th>ID</th>
-                <th>Fullname</th>
-                <th>email</th>
-                <th>role</th>
-      
+                <th>name</th>
+                <th>description</th>      
+                <th>quantity</th>      
+                <th>price</th>      
+                <th>category</th>      
+                <th>image</th>      
                 <th>actions</th>
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let UserDetails of listUserDetails">
-                <td>{{ UserDetails._id }}</td>
-                <td>{{ UserDetails.fullname }}</td>
-                <td>{{ UserDetails.email }}</td>
-                <td>{{ UserDetails.role }}</td>
+              <tr *ngFor="let ProductDetails of listProductDetails">
+                <td>{{ ProductDetails._id }}</td>
+                <td>{{ ProductDetails.name }}</td>
+                <td>{{ ProductDetails.description }}</td>
+                <td>{{ ProductDetails.quantity }}</td>
+                <td>{{ ProductDetails.price }}</td>
+                <td>{{ ProductDetails.category }}</td>
+                <td>{{ ProductDetails.image }}</td>
+                
  
          
                 <td class="align-middle text-center text-sm">
 
 
                   <button type="button" class="btn btn-outline-info btn-sm mx-1"
-                          [routerLink]="['/admin/dashboard/user-details', UserDetails._id]">
+                          [routerLink]="['/admin/dashboard/product-details', ProductDetails._id]">
                     View
                   </button>
                   <button type="button" class="btn btn-outline-info btn-sm mx-1"
-                          [routerLink]="['/admin/dashboard/update-user', UserDetails._id]">
+                          [routerLink]="['/admin/dashboard/update-product', ProductDetails._id]">
                     Edit
                   </button>
                   <button type="button" class="btn btn-danger btn-sm mb-3" data-bs-toggle="modal"
-                          [attr.data-bs-target]="'#modal-notification' + UserDetails._id">
+                          [attr.data-bs-target]="'#modal-notification' + ProductDetails._id">
                     Cancel
                   </button>
 
-                  <div class="modal fade" [id]="'modal-notification' + UserDetails.id" tabindex="-1" role="dialog"
+                  <div class="modal fade" [id]="'modal-notification' + ProductDetails.id" tabindex="-1" role="dialog"
                        aria-labelledby="modal-notification" aria-hidden="true">
                     <!-- ... modal content ... -->
 
@@ -64,14 +70,14 @@
                         <div class="modal-body">
                           <div class="py-3 text-center">
                             <i class="fa-regular fa-trash-can fa-5x" style="color: #d00b0b;"></i>
-                            <h4 class="text-gradient text-danger mt-4"> Cancel Reservation id : {{ UserDetails._id }}
+                            <h4 class="text-gradient text-danger mt-4"> Cancel Reservation id : {{ ProductDetails._id }}
                               !</h4>
                             <!--                          <p>Confirm Cancel This Reservation ?</p>-->
                           </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                  (click)="deleteroomById(UserDetails.id)">Cancel
+                                  (click)="deleteProductById(ProductDetails.id)">Cancel
                           </button>
                           <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
                           </button>

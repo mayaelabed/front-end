@@ -28,20 +28,20 @@ export class AddUserComponent implements OnInit {
       email: ['', Validators.required],
       role: ['USER_ROLE', Validators.required],
       password: ['', Validators.required],
-      image: [null],
+      //image: [null],
       
       
     });
   }
 
-  onFileChange(event: any) {
-    const files: FileList | null = (event.target as HTMLInputElement).files;
+  // onFileChange(event: any) {
+  //   const files: FileList | null = (event.target as HTMLInputElement).files;
 
     
-    this.userForm.patchValue({
-      image: files
-    });
-  }
+  //   this.userForm.patchValue({
+  //     image: files
+  //   });
+  // }
 
 
 
@@ -49,18 +49,18 @@ export class AddUserComponent implements OnInit {
     const formData = new FormData();
 
     // Append each file to the formData
-    if (this.userForm.value.image) {
-      for (let i = 0; i < this.userForm.value.image.length; i++) {
-        formData.append('images', this.userForm.value.image[i]);
-      }
-    }
+    // if (this.userForm.value.image) {
+    //   for (let i = 0; i < this.userForm.value.image.length; i++) {
+    //     formData.append('images', this.userForm.value.image[i]);
+    //   }
+    // }
 
-    // Append other form values
-    Object.keys(this.userForm.value).forEach(key => {
-      if (key !== 'image') {
-        formData.append(key, this.userForm.value[key]);
-      }
-    });
+    // // Append other form values
+    // Object.keys(this.userForm.value).forEach(key => {
+    //   if (key !== 'image') {
+    //     formData.append(key, this.userForm.value[key]);
+    //   }
+    // });
 
     console.log("this.registerForm.value : ", this.userForm.value);
     console.log("this.formData after assign : ", formData);

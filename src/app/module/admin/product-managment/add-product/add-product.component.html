@@ -4,40 +4,48 @@
       <div class="card border border-2">
         <div class="card-header pb-0">
           <div class="d-flex align-items-center">
-            <p class="mb-0 card-header-text1 bold">Add New user</p>
+            <p class="mb-0 card-header-text1 bold">Add New Product</p>
           </div>
         </div>
         <div class="card-body">
           <!-- your-component.component.html -->
 
-          <form [formGroup]="userForm" (ngSubmit)="createUser()">
-            <p class="text-uppercase card-header-text2 text-sm">user Information</p>
+          <form [formGroup]="ProductForm" (ngSubmit)="createProduct()">
+            <p class="text-uppercase card-header-text2 text-sm">Product Information</p>
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="name" class="form-control-label">fullname</label>
-                  <input id="name" class="form-control" type="text" formControlName="fullname">
+                  <label for="name" class="form-control-label">name</label>
+                  <input id="name" class="form-control" type="text" formControlName="name">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="capacity" class="form-control-label">email</label>
-                  <input id="capacity" class="form-control" type="text" formControlName="email">
+                  <label for="capacity" class="form-control-label">description</label>
+                  <input id="capacity" class="form-control" type="text" formControlName="description">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="equipment" class="form-control-label">role</label>
-                  <input id="equipment" class="form-control" type="text" formControlName="role">
+                  <label for="capacity" class="form-control-label">quantity</label>
+                  <input id="capacity" class="form-control" type="number" formControlName="quantity">
                 </div>
               </div>
-      
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="equipment" class="form-control-label">password</label>
-                  <input id="equipment" class="form-control" type="text" formControlName="password">
+                  <label for="capacity" class="form-control-label">price</label>
+                  <input id="capacity" class="form-control" type="number" formControlName="price">
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" class="form-control" formControlName="categoryId" required>
+                    <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+                  </select>
+                </div>
+              </div>
+        
       
               
             </div>
@@ -58,7 +66,7 @@
       </div>
     </div>
 
-    <!-- <div class="col-md-4">
+    <div class="col-md-4">
       <div class="card">
         <div class="card-header pb-0">
           <div class="d-flex align-items-center">
@@ -71,13 +79,13 @@
               <i class="fa-solid fa-arrow-up-from-bracket fa-5x"></i>
             </div>
             
-            <input class="form-control mt-3" type="file" (change)="onFileChange($event)" multiple>
+            <input type="file" id="image" class="form-control" formControlName="image" (change)="onFileChange($event)" accept="image/*" multiple>
           </div>
 
         </div>
       </div>
 
-    </div> -->
-   
+    </div>
+
   </div>
 </div>
