@@ -40,7 +40,8 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="category">Category</label>
-                  <select id="category" class="form-control" formControlName="categoryId" required>
+                  <select id="category" class="form-control" formControlName="category" required>
+                    <option value="" selected disabled hidden>Choose here</option>
                     <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
                   </select>
                 </div>
@@ -74,14 +75,19 @@
           </div>
         </div>
         <div class="card-body">
+          <!-- Upload input and icon -->
           <div class="form-group">
             <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
               <i class="fa-solid fa-arrow-up-from-bracket fa-5x"></i>
             </div>
             
-            <input type="file" id="image" class="form-control" formControlName="image" (change)="onFileChange($event)" accept="image/*" multiple>
+            <input type="file" id="image" class="form-control" formControlName="image" (change)="onFileChange($event)" multiple>
           </div>
 
+          <!-- Display uploaded image -->
+          <div *ngIf="ProductForm.value.image">
+            <img [src]="getUploadedImageUrl()" alt="Uploaded Image" class="img-fluid mt-3">
+          </div>
         </div>
       </div>
 

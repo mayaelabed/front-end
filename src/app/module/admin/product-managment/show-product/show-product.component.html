@@ -34,8 +34,10 @@
                 <td>{{ ProductDetails.description }}</td>
                 <td>{{ ProductDetails.quantity }}</td>
                 <td>{{ ProductDetails.price }}</td>
-                <td>{{ ProductDetails.category }}</td>
-                <td>{{ ProductDetails.image }}</td>
+                <td> {{ getCategoryName(ProductDetails.category) }}</td>
+                <td>
+                  <img [src]="'http://localhost:3001/uploads/' + ProductDetails.image" alt="Product Image" style="max-width: 50px; max-height: 50px;">
+                </td>
                 
  
          
@@ -50,9 +52,8 @@
                           [routerLink]="['/admin/dashboard/update-product', ProductDetails._id]">
                     Edit
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm mb-3" data-bs-toggle="modal"
-                          [attr.data-bs-target]="'#modal-notification' + ProductDetails._id">
-                    Cancel
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  (click)="deleteProductById(ProductDetails._id)">Delete
                   </button>
 
                   <div class="modal fade" [id]="'modal-notification' + ProductDetails.id" tabindex="-1" role="dialog"
@@ -77,7 +78,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
-                                  (click)="deleteProductById(ProductDetails.id)">Cancel
+                                  (click)="deleteProductById(ProductDetails.id)">Delete
                           </button>
                           <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
                           </button>

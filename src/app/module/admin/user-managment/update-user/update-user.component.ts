@@ -31,9 +31,9 @@ export class UpdateUserComponent implements OnInit {
     this.UserService.findById(this.userForm.value._id).subscribe(
       response => {
         if (response) {
-          console.log("RoomDetails : ", this.userForm.value, " response : ", response)
+          console.log("UserDetails : ", this.userForm.value, " response : ", response)
           this.userForm.setValue(response);
-          console.log("RoomDetails : ", this.userForm.value)
+          console.log("UserDetails : ", this.userForm.value)
         }
       }, error => {
         alert("error fetching room details" + error.message);

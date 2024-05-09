@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/core/service/product.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {Subject} from "rxjs";
+import { CategoryService } from 'src/app/core/service/category.service';
 
 @Component({
   selector: 'app-show-product',
@@ -12,12 +13,13 @@ import {Subject} from "rxjs";
 export class ShowProductComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
-
   listProductDetails: any = [];
+  categories!: any[]; // Declare categories property
 
 
   constructor(private ProductService: ProductService,
-              private router: Router) {
+              private router: Router,
+              private CategoryService: CategoryService) {
   }
   ngOnInit(): void {
     this.dtOptions = {
@@ -26,6 +28,15 @@ export class ShowProductComponent implements OnInit {
         searchPlaceholder: 'Text Customer'
       }
     }
+     // Fetch categories when component initializes
+     this.CategoryService.getAll().subscribe(
+      (categories) => {
+        this.categories = categories;
+      },
+      (error) => {
+        console.error('Error fetching categories:', error);
+      }
+    );
 
     this.ProductService.getAll().subscribe({
       next: (response) => {
@@ -40,9 +51,14 @@ export class ShowProductComponent implements OnInit {
     }
     )
 
+  }
 
-
-
+  
+  
+   // Method to get category name based on category ID
+   getCategoryName(categoryId: string): string {
+    const category = this.categories.find(cat => cat._id === categoryId);
+    return category ? category.name : '';
   }
 
 
@@ -61,10 +77,10 @@ export class ShowProductComponent implements OnInit {
         console.log(response)
           this.listProductDetails = this.listProductDetails
             .filter((item: { id: string | undefined; }) => item.id !== id);
+            this.router.navigate([this.router.url]);
 
       }, error =>{
-        alert("Problem Occurred: "+ error.error.message);
-
+        console.log("error to delete product: ", error)
       }
     )
 

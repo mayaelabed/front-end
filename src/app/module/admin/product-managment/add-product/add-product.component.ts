@@ -39,43 +39,47 @@ export class AddProductComponent implements OnInit {
       description: ['', Validators.required],  
       quantity: ['', Validators.required],  
       price: ['', Validators.required],  
-      image: [null],
       category: ['', Validators.required],  
+      image: [null]
+      
     });
+  }
+
+  getUploadedImageUrl(): string | ArrayBuffer {
+    const image = this.ProductForm.value.image;
+    if (image) {
+      return typeof image === 'string' ? image : URL.createObjectURL(image);
+    }
+    return ''; 
   }
 
 
 
   onFileChange(event: any) {
-    const files: FileList | null = (event.target as HTMLInputElement).files;
-    this.ProductForm.patchValue({
-      image: files
-    });
-  }
-
-
-
-  createProduct() {
-    const formData = new FormData();
-
-    // Append each file to the formData
-    if (this.ProductForm.value.image) {
-      for (let i = 0; i < this.ProductForm.value.image.length; i++) {
-        formData.append('images', this.ProductForm.value.image[i]);
-      }
+    if (event.target.files && event.target.files.length) {
+      const file = event.target.files[0];
+      this.ProductForm.patchValue({
+        image: file
+      });
+      this.ProductForm.get('image')?.updateValueAndValidity();
     }
+  }
+  createProduct() {
 
-    // Append other form values
-    Object.keys(this.ProductForm.value).forEach(key => {
-      if (key !== 'image') {
-        formData.append(key, this.ProductForm.value[key]);
-      }
-    });
-    
+    const formData = new FormData();
+    formData.append('name', this.ProductForm.value.name);
+    formData.append('description', this.ProductForm.value.description);
+    formData.append('quantity', this.ProductForm.value.quantity);
+    formData.append('price', this.ProductForm.value.price);
+     // Check if category is selected before appending it
+  if (this.ProductForm.value.category) {
+    formData.append('category', this.ProductForm.value.category);
+  }
+    formData.append('file', this.ProductForm.value.image);
+
     console.log("this.registerForm.value : ", this.ProductForm.value);
-    console.log("this.formData after assign : ", formData);
-
-    this.ProductService.createProduct(this.ProductForm.value).subscribe(
+    
+    this.ProductService.createProduct(formData).subscribe(
         (response) => {
           console.log("response", response);
 
