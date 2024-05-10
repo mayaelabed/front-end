@@ -6,9 +6,9 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">This Week Revenue</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Number of Products</p>
                   <h5 class="font-weight-bolder">
-                    7353 TND
+                    {{ productsCount }}
                   </h5>
                 </div>
               </div>
@@ -27,9 +27,9 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">This Week New Users</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Number of Users</p>
                   <h5 class="font-weight-bolder">
-                    2,300
+                    {{ usersCount }}
                   </h5>
 
                 </div>
@@ -49,9 +49,9 @@
             <div class="row">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">This Month New Clients</p>
+                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Number of Category</p>
                   <h5 class="font-weight-bolder">
-                    +3,462
+                    {{ categoryCount }}
                   </h5>
                 </div>
               </div>
@@ -90,7 +90,7 @@
               <div [chart]="reservationChart" class="mt-5"></div>
             </div>
             <div class="col-md-5 mx-auto">
-              <div [chart]="carChart" class="mt-5"></div>
+              <div [chart]="productChart" class="mt-5"></div>
             </div>
             <div class="row">
               <div class="col-md-11 mx-auto ">
