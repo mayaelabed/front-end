@@ -14,11 +14,13 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { AddProductComponent } from './product-managment/add-product/add-product.component';
 import { ShowProductComponent } from './product-managment/show-product/show-product.component';
 import { UpdateProductComponent } from './product-managment/update-product/update-product.component';
+import { AuthGuard } from 'src/app/core/service/auth.guard';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: PanelComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'main', component: MainComponent },
       //user

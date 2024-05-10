@@ -6,14 +6,14 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AuthService {
   private baseUrl = 'http://localhost:3001/auth';
-
+  private isLogin!: boolean;
  
   constructor(private http: HttpClient) {
   }
 
   authenticate(data: any) {
-    return this.http.post(`${this.baseUrl}/login`, data);
-
+      this.isLogin = true;
+      return this.http.post(`${this.baseUrl}/login`, data);
   }
 
   getUserByEmail(email: string) {
@@ -49,6 +49,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('userDetails');
     localStorage.removeItem('token');
+    this.isLogin = false;
   }
 
   register(data: any) {
@@ -58,6 +59,13 @@ export class AuthService {
   isLoggedIn() {
     const userDetails = localStorage.getItem('userDetails');
     return userDetails != null;
+  }
+
+  isAuthenticated(): boolean {
+    if(localStorage.getItem("token")){
+      this.isLogin = true;
+    }
+    return this.isLogin;
   }
 }
 
