@@ -14,6 +14,15 @@ export class ProductService {
   constructor(private http: HttpClient, private authService:AuthService) { }
 
 
+ 
+
+
+  /*getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/products/${id}`);
+  }
+  getProducts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/products`);
+  }*/
 
   getAll() {
     // return this.http.get<UserDetails>(this.baseUrl);
@@ -38,6 +47,8 @@ export class ProductService {
   deleteProductById(id: string | undefined) {
     return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
+
+  // user
 
 
   

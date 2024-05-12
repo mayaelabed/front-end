@@ -1,0 +1,25 @@
+<div class="col-lg-9 order-1 order-lg-2">
+  <div class="row">
+      <ng-container *ngFor="let product of products">
+          <section class="col-6 col-md-4 item mb-5">
+              <div class="img-wrap mb-4">
+
+                  <img [src]="'http://localhost:3001/uploads/' + product.image" alt="Product Image" style="max-width: 50px; max-height: 50px;">
+                  <hr>
+              </div>
+              <h5 class="text-center font-weight-bold">{{ product.name }}</h5>
+              <p class="text-center">{{ product.price }} TND</p>
+              <p class="text-center review">
+                  <i class="fas fa-star" *ngFor="let star of [1,2,3,4,5]"></i>
+              </p>
+              <button (click)="addToCart(product)" class="btn btn-success">
+                  <i class="bi bi-cart-plus"></i> Add To Cart
+              </button>
+          </section>
+          <br>
+          <br>
+          <br>
+      </ng-container>
+  </div>
+</div>
+  

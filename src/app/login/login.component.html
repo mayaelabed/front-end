@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+
+	<div class="main">  	
+   
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				
+			</div>
+
+			<div class="login">
+				<form   *ngIf="!isLoggedIn"   name="form" (ngSubmit)="f.form.valid && onSubmit()"  #f="ngForm" novalidate>
+					<label for="chk" aria-hidden="true">Login</label>
+                                                                <input
+                                                    type="text"
+                                                    placeholder="email"
+                                                    class="form-control"
+                                                    name="email"
+                                                    [(ngModel)]="form.email"
+                                                    required
+                                                    #email="ngModel"
+                                                    [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+                                                    />
+                                                    <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
+                                                      email is required!
+                                                    </div>
+                                                    <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    name="password"
+                                                    [(ngModel)]="form.password"
+                                                    required
+                                                    placeholder="password"
+                                                    minlength="6"
+                                                    #password="ngModel"
+                                                    [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+                                                  />
+                                                  <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+                                                    <div *ngIf="password.errors['required']">Password is required</div>
+                                                    <div *ngIf="password.errors['minlength']">
+                                                      Password must be at least 6 characters
+                                                    </div>
+                                                  </div>
+					<button>Login</button>
+                  
+                      
+                      <button routerLink="/register">S'inscrire ?</button>
+                    </form>
+                
+                   
+                  
+			</div>
+	</div>
+ 
+</body>
+</html>
+<!-- partial -->
+

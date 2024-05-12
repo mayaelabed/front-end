@@ -3,7 +3,7 @@
 export class ProductModel {
   id?: string;
   name?: string;
-  quantity?: Number;
+  quantite?: Number;
   price?: Number;
   description?: string;
   image?: string[];
@@ -15,7 +15,7 @@ export class ProductModel {
   constructor(
     id?: string,
     name?: string,
-    quantity?: Number,
+    quantite?: Number,
     price?: Number,
     description?: string,
     image?: string[],
@@ -25,7 +25,7 @@ export class ProductModel {
   ) {
     this.id = id;
     this.name = name;
-    this.quantity = quantity;
+    this.quantite = quantite;
     this.price = price;
     this.description = description;
     this.image = image;

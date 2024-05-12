@@ -6,16 +6,37 @@ import {AppComponent} from './app.component';
 import {CommonModule} from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AdminModule} from "./module/admin/admin.module";
-import {ClientModule} from "./module/client/client.module";
+
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {DataTablesModule} from "angular-datatables";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MyInterceptor } from './core/service/interceptor';
+import { HttpRequestInterceptor } from './core/service/interceptor';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { ProduitComponent } from './produit/produit.component';
+import { CartComponent } from './cart/cart.component';
+
+import { OrderComponent } from './order/order.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent,
+    HomeComponent,
+    CartComponent,
+    ProduitComponent,
+   
+    OrderComponent,
+
+   
 
 
   ],
@@ -25,8 +46,11 @@ import { MyInterceptor } from './core/service/interceptor';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    AdminModule,
-    ClientModule,
+    
+
+
+  
+  
     HttpClientModule,
     RouterModule,
     DataTablesModule,
@@ -37,7 +61,7 @@ import { MyInterceptor } from './core/service/interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: MyInterceptor,
+      useClass: HttpRequestInterceptor,
       multi: true
     }
   ],
