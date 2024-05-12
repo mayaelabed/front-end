@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {UserModel} from "../../model/User.model";
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs";
-
+const API_URL = 'http://localhost:3001/';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,10 +14,8 @@ export class UserService {
   constructor(private http: HttpClient, private authService:AuthService) { }
 
 
-
-  getAll() {
-    // return this.http.get<UserDetails>(this.baseUrl);
-    return this.http.get<any>(`${this.baseUrl}/all`);
+  getAll(): Observable<any> {
+    return this.http.get(API_URL + 'all', { responseType: 'text' });
   }
 
   

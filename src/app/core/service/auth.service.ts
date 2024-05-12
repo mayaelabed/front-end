@@ -1,19 +1,48 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const AUTH_API = 'http://localhost:3001/auth/';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService {
-  private baseUrl = 'http://localhost:3001/auth';
+  private baseUrl = 'http://localhost:3001/auth/';
+
   private isLogin!: boolean;
- 
   constructor(private http: HttpClient) {
   }
 
-  authenticate(data: any) {
+ 
+
+  /*authenticate(data: any) {
+    return this.http.post(`${this.baseUrl}/login`, data);
+
+  }*/
+  login(email: string, password: string): Observable<any> {
+    this.isLogin = true;
+    return this.http.post(
+      AUTH_API + 'login',
+      {
+        email,
+        password,
+      },
+      httpOptions
+    );
+  }
+
+  isAuthenticated(): boolean {
+    if(localStorage.getItem("token")){
       this.isLogin = true;
-      return this.http.post(`${this.baseUrl}/login`, data);
+    }
+    return this.isLogin;
   }
 
   getUserByEmail(email: string) {
@@ -46,26 +75,39 @@ export class AuthService {
     }
   }
 
-  logout() {
+  /*logout() {
     localStorage.removeItem('userDetails');
     localStorage.removeItem('token');
-    this.isLogin = false;
+  }*/
+    logout(): Observable<any> {
+    return this.http.post(AUTH_API + 'logout', { }, httpOptions);
   }
 
-  register(data: any) {
+  /*register(data: any) {
     return this.http.post(`${this.baseUrl}/register`, data);
-  }
+  }*/
+
+  
 
   isLoggedIn() {
     const userDetails = localStorage.getItem('userDetails');
     return userDetails != null;
   }
 
-  isAuthenticated(): boolean {
-    if(localStorage.getItem("token")){
-      this.isLogin = true;
-    }
-    return this.isLogin;
+
+  register(fullname: string, email: string, password: string): Observable<any> {
+    return this.http.post(
+      AUTH_API + 'register',
+      {
+        fullname,
+        email,
+        password,
+      },
+      httpOptions
+    );
   }
+
+
 }
+
 
