@@ -1,31 +1,39 @@
+<app-navbar></app-navbar>
+
 <div class="container mt-5">
 	<h2>Panier</h2>
 	<div *ngIf="cartItems.length > 0; else emptyCart">
-	  <div class="row">
-		<div class="col-md-8">
-		  <div class="card mb-3" *ngFor="let item of cartItems">
-			<div class="row no-gutters">
-			  <div class="col-md-4">
-				<img [src]="'http://localhost:3001/uploads/' + item.image" alt="Product Image" style="max-width: 100px; max-height: 100px;">
-			  </div>
-			  <div class="col-md-8">
-				<div class="card-body">
-				  <h5 class="card-title">{{ item.name }}</h5>
-				  <p class="card-text">Prix: {{ item.price }} €</p>
-				  <!-- Autres détails du produit -->
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card mb-3" *ngFor="let item of cartItems ; let i = index">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img [src]="'http://localhost:3001/uploads/' + item.image" alt="Product Image"
+								style="max-width: 100px; max-height: 100px;">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">{{ item.name }}</h5>
+								<p class="card-text">Prix: {{ item.price }} TND</p>
+
+								<button (click)="removeFromCart(i)"><i class="fa fa-times text-danger"></i></button>
+								<!-- Autres détails du produit -->
+							</div>
+						</div>
+					</div>
 				</div>
-			  </div>
 			</div>
-		  </div>
+			<div class="col-md-4">
+
+				<!-- Informations supplémentaires du panier, comme le total -->
+				<h4>Total: {{ getTotal() }} TND</h4>
+
+				<button (click)="clearCart()"><i class="fa fa-times text-danger"></i></button><br>
+				<button class="btn btn-primary " (click)="submit()">Passer la commande</button>
+			</div>
 		</div>
-		<div class="col-md-4">
-		  <!-- Informations supplémentaires du panier, comme le total -->
-		  <h4>Total: {{ getTotal() }} €</h4>
-		  <button class="btn btn-primary">Passer la commande</button>
-		</div>
-	  </div>
 	</div>
 	<ng-template #emptyCart>
-	  <p>Votre panier est vide.</p>
+		<p>Votre panier est vide.</p>
 	</ng-template>
-  </div>
+</div>

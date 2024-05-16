@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import { ProductModel } from 'src/app/model/Product.model';
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs";
+import { CategoryModel } from 'src/app/model/Category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +49,5 @@ export class ProductService {
     return this.http.delete(`${this.baseUrl}/delete/${id}`);
   }
 
-  // user
 
-
-  
 }

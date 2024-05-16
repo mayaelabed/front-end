@@ -21,6 +21,9 @@ import { ProduitComponent } from './produit/produit.component';
 import { CartComponent } from './cart/cart.component';
 
 import { OrderComponent } from './order/order.component';
+import { CategoryComponent } from './category/category.component';
+import { CommanderComponent } from './commander/commander.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -33,8 +36,10 @@ import { OrderComponent } from './order/order.component';
     HomeComponent,
     CartComponent,
     ProduitComponent,
-   
     OrderComponent,
+    CategoryComponent,
+    CommanderComponent,
+    CheckoutComponent,
 
    
 
@@ -47,10 +52,6 @@ import { OrderComponent } from './order/order.component';
     FormsModule,
     ReactiveFormsModule,
     
-
-
-  
-  
     HttpClientModule,
     RouterModule,
     DataTablesModule,

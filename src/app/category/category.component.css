@@ -9,11 +9,14 @@
     }
     #contenu {
     margin-left:245px;
-    background-color:transparent;
+    background-color:#9966FF;
     }
 
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-    img{
-        width: 60%;
-        height: auto;
+    li {
+        margin-bottom: 10px;
     }

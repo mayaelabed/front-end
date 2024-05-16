@@ -7,7 +7,18 @@ import { Product } from 'src/app/model/Product';
 })
 export class CartService {
 
-    cartItems: Product[] = [];
+  cartItems: Product[] = [];
+
+
+  private dataSubject = new BehaviorSubject<any>(null);
+  data$ = this.dataSubject.asObservable();
+
+  setData(data: any) {
+    this.dataSubject.next(data);
+  }
+
+
+
 
   constructor() { }
 
@@ -16,7 +27,11 @@ export class CartService {
     console.log(`Le produit "${product.name}" a été ajouté au panier.`);
   }
 
- 
+
+
+
+
+
 
   removeFromCart(productIndex: number) {
     this.cartItems.splice(productIndex, 1);
@@ -38,4 +53,10 @@ export class CartService {
     });
     return total;
   }
+
+
+
+
+
+
 }
