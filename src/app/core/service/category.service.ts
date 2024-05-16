@@ -16,11 +16,17 @@ export class CategoryService {
 
 
   getAll() {
-    // return this.http.get<CategoryDetails>(this.baseUrl);
+    
     return this.http.get<any>(`${this.baseUrl}/all`);
   }
 
-  
+
+  // categorie
+  /*
+getAll(): Observable<CategoryModel[]> {
+return this.http.get<CategoryModel[]>(this.baseUrl);
+}*/
+
 
   findById(idCategory: string | undefined) {
     return this.http.get<CategoryModel>(`${this.baseUrl}/${idCategory}`);

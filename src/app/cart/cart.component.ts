@@ -11,7 +11,12 @@ export class CartComponent implements OnInit {
 
   cartItems: Product[] = [];
   total: number = 0;
+  
 
+  data :any
+  userId:any
+  p:any
+  idProduit:any
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -39,6 +44,16 @@ export class CartComponent implements OnInit {
     return this.cartItems.reduce((total, product) => total + product.price, 0);
   }
 
+  removeFromCart(index: number): void {
+    this.cartService.removeFromCart(index);
+    this.cartItems = this.cartService.getCartItems(); // Mettre à jour la liste des produits affichés dans le panier
+  }
 
- 
+  submit(){
+      console.log(this.cartItems);
+      
+  }
+
+
+
 }

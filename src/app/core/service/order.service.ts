@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -14,4 +14,18 @@ export class OrderService {
     placeOrder(orderDetails: any): Observable<any> {
       return this.http.post<any>(`${this.baseUrl}/orders`, orderDetails);
     }
+
+
+    
+
+  createOrder(orderData: any): Observable<any> {
+    const url = `${this.baseUrl}/orders`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post(url, orderData, { headers }).pipe(
+      catchError((error: any) => {
+        return throwError(error);
+      })
+    );
+  }
 }
