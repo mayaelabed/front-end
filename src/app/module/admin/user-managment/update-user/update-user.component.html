@@ -1,0 +1,49 @@
+<div class="container-fluid py-4 mt-2">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card border border-2">
+        <div class="card-header pb-0">
+          <div class="d-flex align-items-center">
+            <p class="mb-0 card-header-text1 bold">Update user</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- your-component.component.html -->
+
+          <form [formGroup]="userForm" (ngSubmit)="updateUser()">
+            <p class="text-uppercase card-header-text2 text-sm">user Information</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name" class="form-control-label">fullname</label>
+                  <input id="name" class="form-control" type="text" formControlName="fullname">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="capacity" class="form-control-label">email</label>
+                  <input id="capacity" class="form-control" type="text" formControlName="email">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="equipment" class="form-control-label">role</label>
+                  <input id="equipment" class="form-control" type="text" formControlName="role">
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="row mt-3">
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                <span class="btn-inner--text text-white">Update</span>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

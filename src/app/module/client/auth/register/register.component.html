@@ -1,0 +1,41 @@
+<div class="container ">
+  <div class="row  justify-content-center">
+    <div class="col-md-6 card custom-card2 shadow bg-body-tertiary p-3 mb-5">
+      <div class="card-body">
+        <h2 class="text-center mb-5">Register</h2>
+        <form class="" [formGroup]="registerForm" (ngSubmit)="register()">
+          <!--          username-->
+          <div class="form-floating mb-3">
+            <input formControlName="fullname" type="email" class="form-control mb-2" id="fUsername" placeholder="">
+            <label for="fUsername">Fullname</label>
+          </div>
+         
+          <!--          email-->
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="email" class="form-control mb-2" id="fEmail" placeholder="">
+            <label for="fEmail">Email address</label>
+          </div>
+          <!--          password-->
+          <div class="row  mb-2">
+            <div class="col-md-6 form-floating mb-3">
+              <input formControlName="password" type="password" class="form-control mb-2" id="fPassword1" placeholder="">
+              <label for="fPassword1" class="ms-3">Password</label>
+            </div>
+            <div class="col-md-6 form-floating mb-3">
+              <input type="password" class="form-control mb-2" id="fPassword2" placeholder="">
+              <label for="fPassword2" class="ms-3">Confirm Password</label>
+            </div>
+          </div>
+
+         
+          <input  type="checkbox" class="m-2" value="connected">By clicking Sign Up, you agree to our <a class="a-auth"
+                                                                                                         routerLink="#">Terms</a>,
+          <a class="a-auth" routerLink="#">Privacy Policy</a> and <a class="a-auth" routerLink="#">Cookies Policy</a>.
+          <button type="submit" class="btn custom-btn2 mt-4 mb-2">Register</button>
+          <a class="ms-2" routerLink="/login"> You have already an account, login</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

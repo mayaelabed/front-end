@@ -1,0 +1,97 @@
+<div class="container-fluid py-4 mt-2">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card border border-2">
+        <div class="card-header pb-0">
+          <div class="d-flex align-items-center">
+            <p class="mb-0 card-header-text1 bold">Add New Product</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- your-component.component.html -->
+
+          <form [formGroup]="ProductForm" (ngSubmit)="createProduct()">
+            <p class="text-uppercase card-header-text2 text-sm">Product Information</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name" class="form-control-label">name</label>
+                  <input id="name" class="form-control" type="text" formControlName="name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="capacity" class="form-control-label">description</label>
+                  <input id="capacity" class="form-control" type="text" formControlName="description">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="capacity" class="form-control-label">quantity</label>
+                  <input id="capacity" class="form-control" type="number" formControlName="quantity">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="capacity" class="form-control-label">price</label>
+                  <input id="capacity" class="form-control" type="number" formControlName="price">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select id="category" class="form-control" formControlName="category" required>
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option *ngFor="let category of categories" [value]="category._id">{{ category.name }}</option>
+                  </select>
+                </div>
+              </div>
+        
+      
+              
+            </div>
+
+            <hr class="horizontal dark">
+
+           
+           
+
+            <div class="row mt-3">
+              <button type="submit" class="btn btn-primary btn-lg w-100">
+                <span class="btn-inner--text text-white">Create</span>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header pb-0">
+          <div class="d-flex align-items-center">
+            <p class="mb-0 card-header-text1 bold">Upload Images</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Upload input and icon -->
+          <div class="form-group">
+            <div style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+              <i class="fa-solid fa-arrow-up-from-bracket fa-5x"></i>
+            </div>
+            
+            <input type="file" id="image" class="form-control" formControlName="image" (change)="onFileChange($event)" multiple>
+          </div>
+
+          <!-- Display uploaded image -->
+          <div *ngIf="ProductForm.value.image">
+            <img [src]="getUploadedImageUrl()" alt="Uploaded Image" class="img-fluid mt-3">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

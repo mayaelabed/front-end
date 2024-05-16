@@ -1,0 +1,94 @@
+<div class="container-fluid py-4 mt-2">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card border border-2">
+        <div class="card-header pb-0">
+          <div class="d-flex align-items-center">
+            <p class=" card-header-text1 bold">All Category</p>
+            <button class="btn bg-gradient-success ms-auto" routerLink="/admin/dashboard/add-category"><i
+              class="fas fa-plus"></i>&nbsp;&nbsp;Add New category
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="dataTable-wrapper dataTable-loading no-footer sortable fixed-height fixed-columns">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                   class="table table-bordered row-border hover">
+              <thead class="thead-light">
+              <tr class="">
+                <th>ID</th>
+                <th>name</th>
+                <th>description</th>      
+                <th>actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let CategoryDetails of listCategoryDetails">
+                <td>{{ CategoryDetails._id }}</td>
+                <td>{{ CategoryDetails.name }}</td>
+                <td>{{ CategoryDetails.description }}</td>
+                
+ 
+         
+                <td class="align-middle text-center text-sm">
+
+
+                  <button type="button" class="btn btn-outline-info btn-sm mx-1"
+                          [routerLink]="['/admin/dashboard/category-details', CategoryDetails._id]">
+                    View
+                  </button>
+                  <button type="button" class="btn btn-outline-info btn-sm mx-1"
+                          [routerLink]="['/admin/dashboard/update-category', CategoryDetails._id]">
+                    Edit
+                  </button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  (click)="deleteCategoryById(CategoryDetails._id)">Delete
+                  </button>
+
+                  <div class="modal fade" [id]="'modal-notification' + CategoryDetails.id" tabindex="-1" role="dialog"
+                       aria-labelledby="modal-notification" aria-hidden="true">
+                    <!-- ... modal content ... -->
+
+                    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h6 class="modal-title" id="modal-title-notification">Alert</h6>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="py-3 text-center">
+                            <i class="fa-regular fa-trash-can fa-5x" style="color: #d00b0b;"></i>
+                            <h4 class="text-gradient text-danger mt-4"> Cancel Reservation id : {{ CategoryDetails._id }}
+                              !</h4>
+                            <!--                          <p>Confirm Cancel This Reservation ?</p>-->
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                  (click)="deleteCategoryById(CategoryDetails.id)">Cancel
+                          </button>
+                          <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
