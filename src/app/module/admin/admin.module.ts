@@ -19,6 +19,7 @@ import { CategoryDetailsComponent } from './category-details/category-details.co
 import { AddProductComponent } from './product-managment/add-product/add-product.component';
 import { ShowProductComponent } from './product-managment/show-product/show-product.component';
 import { UpdateProductComponent } from './product-managment/update-product/update-product.component';
+import { ShowOrderComponent } from './order-managment/show-order/show-order.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdateProductComponent } from './product-managment/update-product/updat
     CategoryDetailsComponent,
     AddProductComponent,
     ShowProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    ShowOrderComponent
     
   ],
     imports: [

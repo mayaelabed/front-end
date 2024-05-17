@@ -1,0 +1,81 @@
+<div class="container-fluid py-4 mt-2">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card border border-2">
+        <div class="card-header pb-0">
+          <div class="d-flex align-items-center">
+            <p class=" card-header-text1 bold">All Orders</p>
+      
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="dataTable-wrapper dataTable-loading no-footer sortable fixed-height fixed-columns">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                   class="table table-bordered row-border hover">
+              <thead class="thead-light">
+              <tr class="">
+                <th>ID</th>
+                <th>Cart</th>
+                <th>Total</th>      
+                <th>orderDate</th>          
+                <th>actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let OrderDetails of listOrderDetails">
+                <td>{{ OrderDetails._id }}</td>
+                <td>{{ OrderDetails.cart }}</td>
+                <td>{{ OrderDetails.total }}</td>
+                <td>{{ OrderDetails.orderDate }}</td>
+               
+         
+                <td class="align-middle text-center text-sm">
+
+
+                 
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                  >Delete
+                  </button>
+
+                  <div class="modal fade" [id]="'modal-notification' + OrderDetails.id" tabindex="-1" role="dialog"
+                       aria-labelledby="modal-notification" aria-hidden="true">
+                    <!-- ... modal content ... -->
+
+                    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h6 class="modal-title" id="modal-title-notification">Alert</h6>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="py-3 text-center">
+                            <i class="fa-regular fa-trash-can fa-5x" style="color: #d00b0b;"></i>
+                            <!--                          <p>Confirm Cancel This Reservation ?</p>-->
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary text-white ml-auto" data-bs-dismiss="modal">No
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </td>
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

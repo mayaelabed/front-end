@@ -19,7 +19,6 @@ export class ProductService {
     // return this.http.get<UserDetails>(this.baseUrl);
     return this.http.get<any>(`${this.baseUrl}/all`);
   }
-
   
 
   findById(idProduct: string | undefined) {

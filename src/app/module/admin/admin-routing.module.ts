@@ -15,6 +15,7 @@ import { AddProductComponent } from './product-managment/add-product/add-product
 import { ShowProductComponent } from './product-managment/show-product/show-product.component';
 import { UpdateProductComponent } from './product-managment/update-product/update-product.component';
 import { AuthGuard } from 'src/app/core/service/auth.guard';
+import { ShowOrderComponent } from './order-managment/show-order/show-order.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,9 @@ const routes: Routes = [
        { path: 'update-product/:id', component: UpdateProductComponent  },
        {path: 'category-product/:id', component: CategoryDetailsComponent},
 
-      //login
+       //order
+       { path: 'show-order', component: ShowOrderComponent },
+      //login ShowOrderComponent
       {path: 'login', component: LoginComponent},
 
 
