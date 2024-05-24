@@ -20,10 +20,10 @@ import { HomeComponent } from './home/home.component';
 import { ProduitComponent } from './produit/produit.component';
 import { CartComponent } from './cart/cart.component';
 
-import { OrderComponent } from './order/order.component';
 import { CategoryComponent } from './category/category.component';
 import { CommanderComponent } from './commander/commander.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
+
 
 
 @NgModule({
@@ -36,10 +36,11 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HomeComponent,
     CartComponent,
     ProduitComponent,
-    OrderComponent,
+
     CategoryComponent,
     CommanderComponent,
-    CheckoutComponent,
+    OrderComponent,
+
 
    
 

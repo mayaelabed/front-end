@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { StorageService } from '../core/service/storage.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,45 +12,41 @@ import { StorageService } from '../core/service/storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {
-    email: null,
-    password: null
-  };
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-  roles: string[] = [];
+  public loginForm!: FormGroup;
 
-  constructor(private authService: AuthService, private storageService: StorageService,  private router: Router) { }
+  // public user!: UserDetails;
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+    )
+    {
+  }
 
   ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
-      this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
-    }
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
   }
 
-  onSubmit(): void {
-    const { email, password } = this.form;
 
-    this.authService.login(email, password).subscribe({
-      next: data => {
-        this.storageService.saveUser(data);
+  login() {
+    console.log('this.loginForm.value ===== ', this.loginForm.value)
+    this.authService.authenticate(this.loginForm.value).subscribe(
+      async (response: any) => {
+        if (response) {
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
-        this.reloadPage();
-        this.router.navigate(['home']);
-      },
-      error: err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+          console.log("logged success response : ", response);
+          this.authService.saveUserDetails(response);
+          await this.router.navigate(['/produit']);
+        } else {
+          console.log("mochkel response : ", response);
+        }
+      }, error => {
+        // Handle login error (e.g., display error message)
+        console.error('mochkel login', error);
       }
-    });
-  }
-
-  reloadPage(): void {
-    this.router.navigate(['home']);
+    )
   }
 }

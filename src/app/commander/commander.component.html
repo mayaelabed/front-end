@@ -1,3 +1,53 @@
-
-<app-navbar></app-navbar>
-
+<div class="container">
+    <div class="titre">Mes Commandes</div>
+    <hr>
+    <div class="scoler">
+        <table class="table table-hover"  *ngIf="data&&data.length>0">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID PRODUIT</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Somme</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let d of data">
+                <td>{{d.produit._id}}</td>
+                <td>{{d.produit.name}}</td>
+                <td>{{d.produit.price}}</td>
+                <td>{{d.panier.nobmbre}}</td>
+                <td><span>{{d.panier.date.slice(0,10)}} </span> <span>{{d.panier.date.slice(11,16)}} </span> </td>
+                
+              </tr>
+            </tbody>
+        </table>
+        <table class="table table-hover" *ngIf="data&&data.length==0">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID PRODUIT</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Somme</th>
+                <th scope="col">Date</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  >
+                <td></td>
+                <td></td>
+                <td>vide</td>
+                <td></td>
+                <td></td>
+                <td>
+                 
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+   
+</div>

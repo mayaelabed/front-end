@@ -39,12 +39,19 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    if(localStorage.getItem("token")){
+    const userDetails = localStorage.getItem('userDetails');
+    
+    if(userDetails !=null && localStorage.getItem("token")){
       this.isLogin = true;
     }
+    
     return this.isLogin;
   }
 
+  authenticate(data: any) {
+    //this.isLogin = true;
+    return this.http.post(`${this.baseUrl}/login`, data);
+}
   getUserByEmail(email: string) {
     return this.http.get(`${this.baseUrl}/show-user-by-email/${email}`)
   }
@@ -74,6 +81,17 @@ export class AuthService {
       return null;
     }
   }
+  getDetails(){
+    const userDetail = localStorage.getItem('userDetails');
+    if(userDetail !==null)
+    return JSON.parse(userDetail).other._id;
+  }
+
+  getDetailsname(){
+    const userDetail = localStorage.getItem('userDetails');
+    if(userDetail !==null)
+    return JSON.parse(userDetail).other.fullname;
+  }
 
   /*logout() {
     localStorage.removeItem('userDetails');
@@ -83,9 +101,7 @@ export class AuthService {
     return this.http.post(AUTH_API + 'logout', { }, httpOptions);
   }
 
-  /*register(data: any) {
-    return this.http.post(`${this.baseUrl}/register`, data);
-  }*/
+
 
   
 
@@ -108,6 +124,23 @@ export class AuthService {
   }
 
 
+
+
+
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId');
+  }
+  
+
+  setUserId(userId: string): void {
+    localStorage.setItem('userId', userId);
+  }
+
+  // Méthode pour enregistrer le token
+  setToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
 }
 
 
