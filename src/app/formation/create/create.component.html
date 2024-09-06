@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h3 class="text-center"> Create Formation </h3>
+            <hr />
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label> Nom : </label>
+                        <input type="text" class="form-control" id="nom" [(ngModel)]="formation.nom"
+                            name="nom">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Domaine : </label>
+                        <input type="text" class="form-control" id="domaine" [(ngModel)]="formation.domaine"
+                            name="domaine">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Période : </label>
+                        <input type="text" class="form-control" id="periode" [(ngModel)]="formation.periode"
+                            name="periode">
+                    </div>
+
+                    <div class="form-group">
+                        <label> Prix : </label>
+                        <input type="text" class="form-control" id="prix" [(ngModel)]="formation.prix"
+                            name="prix">
+                    </div>
+
+                    <br />
+                    <button class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

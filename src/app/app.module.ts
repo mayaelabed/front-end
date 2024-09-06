@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {CommonModule} from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {AdminModule} from "./module/admin/admin.module";
+
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
@@ -17,12 +17,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { ProduitComponent } from './produit/produit.component';
-import { CartComponent } from './cart/cart.component';
+import { ContactComponent } from './contact/contact.component';
+import { CreateComponent } from './formation/create/create.component';
 
-import { CategoryComponent } from './category/category.component';
-import { CommanderComponent } from './commander/commander.component';
-import { OrderComponent } from './order/order.component';
 
 
 
@@ -34,12 +31,9 @@ import { OrderComponent } from './order/order.component';
     RegisterComponent,
     FooterComponent,
     HomeComponent,
-    CartComponent,
-    ProduitComponent,
+    ContactComponent,
+    CreateComponent,
 
-    CategoryComponent,
-    CommanderComponent,
-    OrderComponent,
 
 
    

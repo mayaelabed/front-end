@@ -16,22 +16,22 @@
                     <input
                     type="text"
                     class="form-control"
-                    name="fullname"
-                    placeholder="Username"
-                    [(ngModel)]="form.fullname"
+                    name="name"
+                    placeholder="Name"
+                    [(ngModel)]="form.name"
                     required
                     minlength="3"
                     maxlength="20"
-                    #fullname="ngModel"
-                    [ngClass]="{ 'is-invalid': f.submitted && fullname.errors }"
+                    #name="ngModel"
+                    [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
                   />
-                  <div class="invalid-feedback" *ngIf="fullname.errors && f.submitted">
-                    <div *ngIf="fullname.errors['required']">Username is required</div>
-                    <div *ngIf="fullname.errors['minlength']">
-                      Username must be at least 3 characters
+                  <div class="invalid-feedback" *ngIf="name.errors && f.submitted">
+                    <div *ngIf="name.errors['required']">Username is required</div>
+                    <div *ngIf="name.errors['minlength']">
+                      name must be at least 3 characters
                     </div>
-                    <div *ngIf="fullname.errors['maxlength']">
-                      Username must be at most 20 characters
+                    <div *ngIf="name.errors['maxlength']">
+                      name must be at most 20 characters
                     </div>
                   </div>
 

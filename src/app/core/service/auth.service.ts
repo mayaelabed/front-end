@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:3001/auth/';
+const AUTH_API = 'http://localhost:8090/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +14,7 @@ const httpOptions = {
 
 
 export class AuthService {
-  private baseUrl = 'http://localhost:3001/auth/';
+  private baseUrl = 'http://localhost:8090/api/auth/';
 
   private isLogin!: boolean;
   constructor(private http: HttpClient) {
@@ -68,14 +68,14 @@ export class AuthService {
       const userDetailsParsed = JSON.parse(userDetails);
       if (param == "id") {
         return userDetailsParsed.id;
-      } else if (param == "fullname") {
+      } else if (param == "name") {
         return userDetailsParsed.fullname;
       } else if (param == "email") {
         return userDetailsParsed.email;
       } else if (param == "all") {
         return userDetailsParsed;
       } else {
-        return "specify required details : id, fullname, email, all";
+        return "specify required details : id, name, email, all";
       }
     } else {
       return null;
@@ -111,11 +111,11 @@ export class AuthService {
   }
 
 
-  register(fullname: string, email: string, password: string): Observable<any> {
+  register(name: string, email: string, password: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'register',
       {
-        fullname,
+        name,
         email,
         password,
       },

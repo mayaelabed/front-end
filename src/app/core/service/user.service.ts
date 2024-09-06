@@ -3,13 +3,13 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {UserModel} from "../../model/User.model";
 import {AuthService} from "./auth.service";
 import {Observable} from "rxjs";
-const API_URL = 'http://localhost:3001/user';
+const API_URL = 'http://localhost:8090/api/auth/user';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:3001/user';
+  private baseUrl = 'http://localhost:8090/api/auth/user';
   loggedUserId = this.authService.getUserDetails("id");
   constructor(private http: HttpClient, private authService:AuthService) { }
 

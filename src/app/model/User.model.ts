@@ -2,7 +2,7 @@
 
 export class UserModel {
   id?: string;
-  fullname?: string;
+  name?: string;
   email?: string;
   password?: string;
   role?: string;
@@ -13,7 +13,7 @@ export class UserModel {
 
   constructor(
     id?: string,
-    fullname?: string,
+    name?: string,
     email?: string,
     password?: string,
     role?: string,
@@ -22,7 +22,7 @@ export class UserModel {
     updatedOn?: Date
   ) {
     this.id = id;
-    this.fullname = fullname;
+    this.name = name;
     this.email = email;
     this.password = password;
     this.role = role;

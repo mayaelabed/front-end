@@ -3,36 +3,26 @@ import {RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ContactComponent } from './contact/contact.component';
+import { CreateComponent } from './formation/create/create.component';
 
-import { ProduitComponent } from './produit/produit.component';
-import { CartComponent } from './cart/cart.component';
-import { CategoryComponent } from './category/category.component';
-import { CommanderComponent } from './commander/commander.component';
-import { OrderComponent } from './order/order.component';
 
 
 
 
 const routes: Routes = [
-  { path: 'admin',
-    loadChildren: () => import('./module/admin/admin-routing.module')
-      .then(m => m.AdminRoutingModule) },
-  /*{ path: 'user',
-    loadChildren: () => import('./module/client/client-routing.module')
-      .then(m => m.ClientRoutingModule) },
-*/
+  
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  {path: 'produit' , component: ProduitComponent},
-  {path: 'cart' , component: CartComponent},
+  {path: 'contact' , component:ContactComponent},
+  {path: 'formation',component:CreateComponent},
+  
 
-  {path: 'category' , component: CategoryComponent},
- {path: "cmd" , component:CommanderComponent},
- {path:"order" , component:OrderComponent}
+ 
 
 ];
 
